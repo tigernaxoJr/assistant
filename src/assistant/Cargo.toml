@@ -1,0 +1,17 @@
+[package]
+name = "assistant"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+regex = { version = "1.12.3", default-features = false, features = ["std", "perf", "unicode-perl"] }
+thiserror = "2.0.18"
+ureq = "3.3.0"
+
+[profile.release]
+opt-level = "z"         # Optimize for binary size
+lto = true              # Enable Link Time Optimization (LTO)
+codegen-units = 1       # Reduce codegen units to maximize LTO optimizations
+panic = "abort"         # Abort on panic to remove unwinding code
+strip = true            # Automatically strip symbols and debug info
+

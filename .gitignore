@@ -1,0 +1,13 @@
+# Rust build artifacts
+**/target/
+
+# Ignore downloaded weather images at root or project directories
+*.png
+!/.agents/skills/**/*.png
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
